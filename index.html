@@ -19,14 +19,16 @@
       position: fixed;
     }
     .sidebar img {
-      width: 100px;
+      width: 120px;
       border-radius: 50%;
       display: block;
       margin: auto;
+      border: 3px solid #38bdf8;
     }
     .sidebar h2 {
       text-align: center;
       margin-top: 10px;
+      font-size: 20px;
     }
     .sidebar .social a {
       color: white;
@@ -79,11 +81,26 @@
 
     .about-text {
       flex: 1;
+      line-height: 1.6;
     }
 
     ul {
       list-style: none;
       padding-left: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #0f172a;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-top: 15px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #1e40af;
     }
 
     footer {
@@ -113,7 +130,7 @@
   <!-- Sidebar -->
   <div class="sidebar">
     <img src="sanket.jpg.jpeg" alt="Sanket's photo">
-    <h2>Sanket Naikwade</h2>
+    <h2>Sanket Ramesh Naikwade</h2>
     <div class="social">
       <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/sanket7016" target="_blank"><i class="fab fa-github"></i></a>
@@ -126,18 +143,21 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="#resume">Resume</a></li>
     </ul>
   </div>
 
   <!-- Main Content -->
   <div class="main">
+    <!-- About -->
     <section id="about" class="section">
       <h2>About Me</h2>
       <div class="about-container">
         <img src="sanket.jpg.jpeg" alt="Sanket Naikwade">
         <div class="about-text">
-          <p>I'm Sanket Ramesh Naikwade, a Data Enthusiast with a B.Sc. in Computer Science. Passionate about Excel, Python, Power BI, and data visualization. Currently pursuing advanced analytics training, and eager to work on data-driven projects.</p>
-          <p><strong>Degree:</strong> B.Sc. in Computer Science<br>
+          <p>I am <strong>Sanket Ramesh Naikwade</strong>, a motivated MCA student with a background in Computer Science (B.Sc. CS). Skilled in <strong>Python, SQL, Excel, Power BI, and Tableau</strong>, with experience in data cleaning, visualization, and dashboard creation. Passionate about data analytics and eager to apply my skills in real-world projects and professional roles.</p>
+          <p><strong>Degree:</strong> MCA (Pursuing), B.Sc. Computer Science<br>
+          <strong>College:</strong> Dr. Moonje Institute of Management & IT, Nashik<br>
           <strong>City:</strong> Nashik, Maharashtra<br>
           <strong>Email:</strong> sanketnaikwade673@gmail.com<br>
           <strong>Phone:</strong> +91 8262847016</p>
@@ -145,26 +165,38 @@
       </div>
     </section>
 
+    <!-- Skills -->
     <section id="skills" class="section">
       <h2>Skills</h2>
       <ul>
-        <li>Excel & Advanced Excel</li>
-        <li>Python</li>
-        <li>Power BI</li>
-        <li>SQL</li>
-        <li>Data Cleaning & Visualization</li>
+        <li>Data Analysis & Reporting – Data cleaning, transformation, dashboards</li>
+        <li>Excel – Pivot Tables, VLOOKUP/HLOOKUP, Conditional Formatting</li>
+        <li>Python – NumPy, Pandas, Matplotlib, Seaborn</li>
+        <li>SQL – Joins, Subqueries, DDL, DML, TCL, DQL</li>
+        <li>BI Tools – Power BI, Tableau (Dashboard Design & Visualization)</li>
       </ul>
     </section>
 
+    <!-- Projects -->
     <section id="projects" class="section">
       <h2>Projects</h2>
       <ul>
+        <li><strong>Spotify Data Analysis</strong> – Studied streaming trends, artist growth, and user behavior; built dashboards in Power BI and Tableau.</li>
+        <li><strong>Lung Cancer Data Analysis</strong> – Processed healthcare data and applied Python for visualization and insights.</li>
         <li><strong>Online Examination System</strong> – Built with PHP to manage tests, scores, and results.</li>
-        <li><strong>Spotify Data Analysis</strong> – Python & visualization to explore music trends.</li>
-        <li><strong>Titanic Dataset Analysis</strong> – Data cleaning & EDA with Python.</li>
       </ul>
     </section>
 
+    <!-- Resume -->
+    <section id="resume" class="section">
+      <h2>Resume</h2>
+      <p>You can download my latest resume below:</p>
+      <a href="Sanket_Naikwade_Resume.pdf" download class="btn">
+        <i class="fas fa-download"></i> Download Resume
+      </a>
+    </section>
+
+    <!-- Contact -->
     <section id="contact" class="section">
       <h2>Contact</h2>
       <ul>
@@ -172,7 +204,6 @@
         <li><strong>Phone:</strong> +91 8262847016</li>
         <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank">LinkedIn Profile</a></li>
         <li><strong>GitHub:</strong> <a href="https://github.com/sanket7016" target="_blank">GitHub Profile</a></li>
-        <li><strong>Instagram:</strong> <a href="https://www.instagram.com/naikwade_sanket/" target="_blank">@naikwade_sanket</a></li>
       </ul>
     </section>
 
