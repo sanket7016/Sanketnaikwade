@@ -5,99 +5,151 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sanket Ramesh Naikwade | Portfolio</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <style>
-/* ===== Reset & Base ===== */
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif; }
-html { scroll-behavior:smooth; }
-body { position:relative; color:#fff; }
+/* ===== Reset ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+html{scroll-behavior:smooth;}
+body{color:#fff;background:#0a0f1c;overflow-x:hidden;}
 
-/* ===== Particles Background ===== */
-#particles-js{
-    position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;
+/* ===== Holographic Background ===== */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background:radial-gradient(circle at center,#1e3a8a55,#0f172a 70%);
+  z-index:-2;
 }
+.holo-rings{
+  position:fixed;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:800px;height:800px;border-radius:50%;
+  background:conic-gradient(from 0deg,#38bdf855,#1e40af22,#38bdf855);
+  animation:spin 20s linear infinite;
+  filter:blur(60px);
+  z-index:-1;
+}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg);}}
 
 /* ===== Sidebar ===== */
 .sidebar{
-    width:250px; background: rgba(15,23,42,0.95); position: fixed; height:100%; padding:20px;
+  width:250px;background:rgba(15,23,42,0.8);
+  backdrop-filter:blur(10px);
+  border-right:2px solid #38bdf8;
+  position:fixed;height:100%;padding:20px;z-index:5;
 }
-.sidebar img{ width:120px; border-radius:50%; display:block; margin:auto; border:3px solid #38bdf8; }
-.sidebar h2{ text-align:center; margin-top:10px; font-size:20px; }
-.social a{ color:white; margin:5px; font-size:18px; display:inline-block; }
-.nav-links{ list-style:none; margin-top:30px; }
-.nav-links li{ margin-bottom:15px; }
-.nav-links a{ color:#cbd5e1; text-decoration:none; transition:0.3s; }
-.nav-links a:hover{ color:#38bdf8; font-weight:bold; }
+.sidebar img{width:120px;border-radius:50%;display:block;margin:auto;border:3px solid #38bdf8;}
+.sidebar h2{text-align:center;margin-top:10px;font-size:20px;color:#38bdf8;}
+.social{text-align:center;margin-top:10px;}
+.social a{color:#38bdf8;margin:5px;font-size:18px;transition:0.3s;}
+.social a:hover{color:#fff;transform:scale(1.2);}
+.nav-links{list-style:none;margin-top:30px;}
+.nav-links li{margin-bottom:15px;}
+.nav-links a{color:#cbd5e1;text-decoration:none;transition:0.3s;}
+.nav-links a:hover{color:#38bdf8;font-weight:bold;}
 
-/* ===== Main Content ===== */
-.main{ margin-left:250px; padding:30px; }
-section{ margin-bottom:50px; opacity:0; transform:translateY(50px); transition:0.8s ease; }
-section.visible{ opacity:1; transform:translateY(0); }
-h2{ border-bottom:2px solid #38bdf8; padding-bottom:10px; color:#38bdf8; }
+/* ===== Main ===== */
+.main{margin-left:250px;padding:30px;}
+section{margin-bottom:60px;opacity:0;transform:translateY(50px);transition:0.8s;}
+section.visible{opacity:1;transform:translateY(0);}
+h2{border-bottom:2px solid #38bdf8;padding-bottom:10px;color:#38bdf8;margin-bottom:20px;}
 
-/* About Section */
-.about-container{ display:flex; flex-wrap:wrap; align-items:center; }
-.about-container img{ max-width:200px; border-radius:10px; margin-right:20px; }
-.about-text{ flex:1; line-height:1.6; }
+/* ===== Glassmorphic Cards ===== */
+.card-container{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
+.card{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(56,189,248,0.4);
+  border-radius:12px;
+  padding:20px;
+  width:320px;
+  backdrop-filter:blur(15px);
+  box-shadow:0 0 15px rgba(56,189,248,0.2);
+  transition:0.3s;
+}
+.card:hover{box-shadow:0 0 25px #38bdf8;transform:translateY(-5px);}
+.card img{width:100%;border-radius:8px;margin:10px 0;}
 
-/* Buttons */
-.btn{ display:inline-block; padding:10px 20px; background:#0f172a; color:white; text-decoration:none; border-radius:6px; margin-top:10px; transition:0.3s, box-shadow 0.3s; }
-.btn:hover{ background:#1e40af; box-shadow:0 0 15px #38bdf8; }
+/* ===== Buttons ===== */
+.btn{
+  display:inline-block;padding:10px 18px;margin:5px;
+  border-radius:6px;background:rgba(56,189,248,0.15);
+  border:1px solid #38bdf8;color:#38bdf8;
+  text-decoration:none;transition:0.3s;
+}
+.btn:hover{background:#38bdf8;color:#0f172a;box-shadow:0 0 15px #38bdf8;}
 
-/* ===== Skills Circle Section ===== */
-.skills-section{ position:relative; width:500px; height:500px; margin:50px auto; }
-.center-label{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:20px; font-weight:bold; background: rgba(15,23,42,0.8); padding:15px 20px; border-radius:10px; text-align:center; z-index:10; }
-.skills-circle{ position:absolute; width:100%; height:100%; top:0; left:0; animation: rotate 60s linear infinite; transform-origin:center center; }
-@keyframes rotate{ 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
-.skill{ position:absolute; width:100px; height:100px; border-radius:50%; background:#0f172a; display:flex; align-items:center; justify-content:center; cursor:pointer; transition: transform 0.3s; text-align:center; font-weight:bold; }
-.skill:hover{ transform: scale(1.2); }
-.skill-name{ pointer-events:none; }
-.sub-skills{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:rgba(30,41,59,0.95); padding:15px 20px; border-radius:8px; display:none; flex-direction:column; align-items:center; gap:5px; z-index:20; text-align:center; max-width:200px; }
-.sub-skills span{ background:#38bdf8; padding:5px 10px; border-radius:5px; font-size:14px; display:block; width:100%; text-align:center; }
+/* ===== Skills Section ===== */
+.skills-section{
+  position:relative;width:500px;height:500px;margin:0 auto;
+}
+.center-label{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-size:22px;font-weight:bold;
+  background:rgba(15,23,42,0.85);padding:15px 25px;
+  border:1px solid #38bdf8;border-radius:12px;
+  backdrop-filter:blur(10px);
+}
+.skills-circle{
+  position:absolute;width:100%;height:100%;top:0;left:0;
+  animation:rotate 40s linear infinite;
+  transform-origin:center center;
+}
+@keyframes rotate{to{transform:rotate(360deg);}}
+.skill{
+  position:absolute;width:90px;height:90px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(15,23,42,0.9);
+  border:1px solid #38bdf8;cursor:pointer;
+  transition:transform 0.3s;
+}
+.skill:hover{transform:scale(1.2);}
+.skill span{margin-top:65px;font-size:14px;color:#38bdf8;position:absolute;white-space:nowrap;}
+/* Subskills Popup */
+.sub-skills{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  display:none;flex-wrap:wrap;gap:10px;justify-content:center;
+  width:80%;padding:20px;
+  background:rgba(15,23,42,0.95);border:1px solid #38bdf8;border-radius:12px;
+}
+.sub-skills .sub{padding:10px 15px;background:rgba(56,189,248,0.15);border:1px solid #38bdf8;border-radius:6px;color:#38bdf8;}
+.back-btn{margin-top:15px;}
 
-/* Certificates */
-.certificate-container{ display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-.certificate-card{ background: rgba(255,255,255,0.1); padding:15px; border-radius:10px; width:320px; text-align:center; box-shadow:0px 4px 12px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s; }
-.certificate-card:hover{ transform: scale(1.05); box-shadow:0 0 20px #38bdf8; }
-.certificate-card img{ width:100%; border-radius:8px; margin:10px 0; }
+/* ===== Contact ===== */
+#contact ul{list-style:none;line-height:2;}
+#contact a{color:#38bdf8;text-decoration:none;}
+#contact a:hover{text-decoration:underline;}
 
-/* Footer */
-footer{text-align:center; padding:10px; background: rgba(15,23,42,0.9); color:white; }
-
-/* Responsive */
-@media screen and (max-width:768px){
-    .sidebar{width:100%; height:auto; position:relative;}
-    .main{margin-left:0;}
-    .skills-section{width:300px; height:300px;}
-    .skills-circle .skill{width:70px;height:70px;font-size:12px;}
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  .sidebar{width:100%;height:auto;position:relative;}
+  .main{margin-left:0;}
+  .skills-section{width:300px;height:300px;}
+  .skill{width:60px;height:60px;}
 }
 </style>
 </head>
 <body>
 
-<!-- Particles Background -->
-<div id="particles-js"></div>
+<div class="holo-rings"></div>
 
 <!-- Sidebar -->
 <div class="sidebar">
-    <img src="sanket.jpg.jpeg" alt="Sanket">
-    <h2>Sanket Ramesh Naikwade</h2>
-    <div class="social">
-        <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/sanket7016" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://wa.me/918262847016"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.instagram.com/naikwade_sanket/" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
-    <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+  <img src="sanket.jpg.jpeg" alt="Sanket">
+  <h2>Sanket Ramesh Naikwade</h2>
+  <div class="social">
+    <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/sanket7016" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://wa.me/918262847016" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/naikwade_sanket/" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certificates">Certificates</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </div>
 
 <!-- Main -->
@@ -106,11 +158,8 @@ footer{text-align:center; padding:10px; background: rgba(15,23,42,0.9); color:wh
 <!-- About -->
 <section id="about">
 <h2>About Me</h2>
-<div class="about-container">
-<img src="sanket.jpg.jpeg" alt="Sanket">
-<div class="about-text">
-<p>I am <strong>Sanket Ramesh Naikwade</strong>, MCA student with B.Sc. CS background. Skilled in <strong>Python, SQL, Excel, Power BI, Tableau, Data Analysis</strong>. Experienced in data cleaning, visualization, dashboards. Passionate about real-world data analytics projects.</p>
-</div>
+<div class="card">
+  <p>I am <strong>Sanket Ramesh Naikwade</strong>, MCA student with B.Sc. CS background. Skilled in <strong>Python, SQL, Excel, Power BI, Tableau, Data Analysis</strong>. Experienced in data cleaning, visualization, dashboards. Passionate about real-world data analytics projects.</p>
 </div>
 </section>
 
@@ -118,63 +167,53 @@ footer{text-align:center; padding:10px; background: rgba(15,23,42,0.9); color:wh
 <section id="skills">
 <h2>Skills</h2>
 <div class="skills-section">
-<div class="center-label">Data Analytics</div>
-<div class="skills-circle" id="skillsCircle">
-  <div class="skill" style="top:0%; left:50%;" data-sub="NumPy,Pandas,Matplotlib,Seaborn,SciKit-Learn"><i class="fab fa-python fa-2x"></i><div class="skill-name">Python</div></div>
-  <div class="skill" style="top:20%; left:85%;" data-sub="Joins,Subqueries,DDL,DML,TCL,DQL"><i class="fas fa-database fa-2x"></i><div class="skill-name">SQL</div></div>
-  <div class="skill" style="top:60%; left:100%;" data-sub="Pivot Tables,VLOOKUP/HLOOKUP,Conditional Formatting,Charts"><i class="fas fa-file-excel fa-2x"></i><div class="skill-name">Excel</div></div>
-  <div class="skill" style="top:90%; left:50%;" data-sub="Data Modeling,DAX,Visualizations,Dashboards"><i class="fas fa-chart-line fa-2x"></i><div class="skill-name">Power BI</div></div>
-  <div class="skill" style="top:60%; left:0%;" data-sub="Filters,Calculations,Charts,Maps,Dashboards"><i class="fas fa-table fa-2x"></i><div class="skill-name">Tableau</div></div>
-  <div class="skill" style="top:20%; left:15%;" data-sub="Cleaning,Transformation,Reporting,Visualization"><i class="fas fa-chart-pie fa-2x"></i><div class="skill-name">Data Analysis</div></div>
-</div>
-
-<div class="sub-skills" id="subSkillsContainer"></div>
+  <div class="center-label" id="centerLabel">Data Analytics</div>
+  <div class="skills-circle" id="skillsCircle">
+    <div class="skill" style="top:0%;left:50%;" data-skill="Python" data-sub="NumPy,Pandas,Matplotlib,Seaborn,Scikit-Learn"><i class="fab fa-python fa-2x"></i><span>Python</span></div>
+    <div class="skill" style="top:20%;left:90%;" data-skill="SQL" data-sub="Joins,Subqueries,DDL,DML,TCL,DQL"><i class="fas fa-database fa-2x"></i><span>SQL</span></div>
+    <div class="skill" style="top:70%;left:100%;" data-skill="Excel" data-sub="Pivot Tables,VLOOKUP,HLOOKUP,Charts"><i class="fas fa-file-excel fa-2x"></i><span>Excel</span></div>
+    <div class="skill" style="top:90%;left:50%;" data-skill="Power BI" data-sub="DAX,Data Modeling,Dashboards"><i class="fas fa-chart-line fa-2x"></i><span>Power BI</span></div>
+    <div class="skill" style="top:70%;left:0%;" data-skill="Tableau" data-sub="Charts,Maps,Dashboards"><i class="fas fa-table fa-2x"></i><span>Tableau</span></div>
+    <div class="skill" style="top:20%;left:10%;" data-skill="Data Analysis" data-sub="Cleaning,Transformation,Visualization"><i class="fas fa-chart-pie fa-2x"></i><span>Data Analysis</span></div>
+  </div>
+  <div class="sub-skills" id="subSkills"></div>
 </div>
 </section>
 
 <!-- Projects -->
 <section id="projects">
 <h2>Projects</h2>
-<div class="certificate-container">
-  <div class="certificate-card">
-    <h3>Spotify Data Analysis</h3>
-    <p>Analyzed streaming trends, artist growth, and user behavior; built dashboards in Power BI and Tableau.</p>
-  </div>
-  <div class="certificate-card">
-    <h3>Lung Cancer Data Analysis</h3>
-    <p>Processed healthcare data and applied Python for visualization and insights.</p>
-  </div>
-  <div class="certificate-card">
-    <h3>Online Examination System</h3>
-    <p>Built with PHP to manage tests, scores, and results.</p>
-  </div>
+<div class="card-container">
+  <div class="card"><h3>Spotify Data Analysis</h3><p>Analyzed streaming trends and user behavior using Power BI & Tableau.</p></div>
+  <div class="card"><h3>Lung Cancer Data Analysis</h3><p>Processed healthcare data using Python visualization libraries.</p></div>
+  <div class="card"><h3>Online Examination System</h3><p>Built in PHP to manage tests, scores, and results.</p></div>
 </div>
 </section>
 
 <!-- Education -->
 <section id="education">
 <h2>Education</h2>
-<div class="certificate-container">
-  <div class="certificate-card"><h3>MCA</h3><p>Pursuing (Part 1), Savitribai Phule Pune University</p></div>
-  <div class="certificate-card"><h3>B.Sc. Computer Science</h3><p>2022–2025, Savitribai Phule Pune University</p></div>
+<div class="card-container">
+  <div class="card"><h3>MCA</h3><p>Pursuing (Part 1), Savitribai Phule Pune University</p></div>
+  <div class="card"><h3>B.Sc. Computer Science</h3><p>2022–2025, Savitribai Phule Pune University</p></div>
 </div>
 </section>
 
 <!-- Certificates -->
 <section id="certificates">
 <h2>Certificates</h2>
-<div class="certificate-container">
-  <div class="certificate-card">
+<div class="card-container">
+  <div class="card">
     <h3>Cybersecurity Basics</h3>
     <img src="certificate-cybersecurity.jpeg" alt="Cybersecurity Certificate">
-    <a href="certificate-cybersecurity.jpeg" target="_blank" class="btn"><i class="fas fa-eye"></i> View</a>
-    <a href="certificate-cybersecurity.jpeg" download class="btn"><i class="fas fa-download"></i> Download</a>
+    <a href="certificate-cybersecurity.jpeg" target="_blank" class="btn">View</a>
+    <a href="certificate-cybersecurity.jpeg" download class="btn">Download</a>
   </div>
-  <div class="certificate-card">
+  <div class="card">
     <h3>Data Analytics Training</h3>
     <img src="certificate-data-analytics.jpeg" alt="Data Analytics Certificate">
-    <a href="certificate-data-analytics.jpeg" target="_blank" class="btn"><i class="fas fa-eye"></i> View</a>
-    <a href="certificate-data-analytics.jpeg" download class="btn"><i class="fas fa-download"></i> Download</a>
+    <a href="certificate-data-analytics.jpeg" target="_blank" class="btn">View</a>
+    <a href="certificate-data-analytics.jpeg" download class="btn">Download</a>
   </div>
 </div>
 </section>
@@ -182,17 +221,17 @@ footer{text-align:center; padding:10px; background: rgba(15,23,42,0.9); color:wh
 <!-- Resume -->
 <section id="resume">
 <h2>Resume</h2>
-<a href="Sanket_Naikwade_Resume.pdf" download class="btn"><i class="fas fa-download"></i> Download Resume</a>
+<a href="Sanket_Naikwade_Resume.pdf" download class="btn">Download Resume</a>
 </section>
 
 <!-- Contact -->
 <section id="contact">
 <h2>Contact</h2>
 <ul>
-<li><strong>Email:</strong> sanketnaikwade673@gmail.com</li>
-<li><strong>Phone:</strong> +91 8262847016</li>
-<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank">Profile</a></li>
-<li><strong>GitHub:</strong> <a href="https://github.com/sanket7016" target="_blank">Profile</a></li>
+  <li><strong>Email:</strong> <a href="mailto:sanketnaikwade673@gmail.com">sanketnaikwade673@gmail.com</a></li>
+  <li><strong>Phone:</strong> <a href="tel:+918262847016">+91 8262847016</a></li>
+  <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank">Profile</a></li>
+  <li><strong>GitHub:</strong> <a href="https://github.com/sanket7016" target="_blank">Profile</a></li>
 </ul>
 </section>
 
@@ -200,52 +239,51 @@ footer{text-align:center; padding:10px; background: rgba(15,23,42,0.9); color:wh
 <p>&copy; 2025 Sanket Ramesh Naikwade | All Rights Reserved</p>
 </footer>
 
+</div>
+
 <script>
-// Particles.js
-particlesJS("particles-js", {
-  "particles": {
-    "number": {"value":80,"density":{"enable":true,"value_area":800}},
-    "color":{"value":"#38bdf8"},
-    "shape":{"type":"circle"},
-    "opacity":{"value":0.5},
-    "size":{"value":3},
-    "line_linked":{"enable":true,"distance":150,"color":"#38bdf8","opacity":0.4,"width":1},
-    "move":{"enable":true,"speed":2,"direction":"none","random":false,"straight":false,"out_mode":"out"}
-  },
-  "interactivity":{
-    "detect_on":"canvas",
-    "events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"}}
-  }
-});
-
-// Skills Circle Hover & Click
-const skillsCircle = document.getElementById('skillsCircle');
-const skills = document.querySelectorAll('.skill');
-const subSkillsContainer = document.getElementById('subSkillsContainer');
-
-skills.forEach(skill=>{
-    const subSkills = skill.getAttribute('data-sub').split(',');
-    skill.addEventListener('mouseenter', ()=>{ skillsCircle.style.animationPlayState = 'paused'; });
-    skill.addEventListener('mouseleave', ()=>{ skillsCircle.style.animationPlayState = 'running'; });
-    skill.addEventListener('click', ()=>{
-        subSkillsContainer.innerHTML = '';
-        subSkills.forEach(s=>{
-            const span = document.createElement('span');
-            span.textContent = s;
-            subSkillsContainer.appendChild(span);
-        });
-        subSkillsContainer.style.display='flex';
-    });
-});
-
-// Fade-in sections
-const sections = document.querySelectorAll('section');
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){ entry.target.classList.add('visible'); }
-    });
+// Intersection fade-in
+const sections=document.querySelectorAll("section");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("visible");
+  });
 },{threshold:0.2});
 sections.forEach(sec=>observer.observe(sec));
+
+// Skills Logic
+const skills=document.querySelectorAll(".skill");
+const subSkills=document.getElementById("subSkills");
+const centerLabel=document.getElementById("centerLabel");
+const skillsCircle=document.getElementById("skillsCircle");
+
+skills.forEach(skill=>{
+  skill.addEventListener("click",()=>{
+    const name=skill.getAttribute("data-skill");
+    const subs=skill.getAttribute("data-sub").split(",");
+    centerLabel.textContent=name;
+    skillsCircle.style.display="none";
+    subSkills.innerHTML="";
+    subs.forEach(s=>{
+      const div=document.createElement("div");
+      div.className="sub";
+      div.textContent=s;
+      subSkills.appendChild(div);
+    });
+    const back=document.createElement("a");
+    back.textContent="Back";
+    back.href="#skills";
+    back.className="btn back-btn";
+    back.addEventListener("click",(e)=>{
+      e.preventDefault();
+      centerLabel.textContent="Data Analytics";
+      skillsCircle.style.display="block";
+      subSkills.style.display="none";
+    });
+    subSkills.appendChild(back);
+    subSkills.style.display="flex";
+  });
+});
 </script>
 
 </body>
