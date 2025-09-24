@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sanket Ramesh Naikwade | Portfolio</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
 /* ===== Reset ===== */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
@@ -37,10 +36,13 @@ body::before{
   border-right:2px solid #38bdf8;
   position:fixed;height:100%;padding:20px;z-index:5;
 }
-.sidebar img{width:120px;border-radius:50%;display:block;margin:auto;border:3px solid #38bdf8;}
-.sidebar h2{text-align:center;margin-top:10px;font-size:20px;color:#38bdf8;}
-.social{text-align:center;margin-top:10px;}
-.social a{color:#38bdf8;margin:5px;font-size:18px;transition:0.3s;}
+.sidebar img{width:150px;height:150px;border-radius:8px;display:block;margin:auto;border:3px solid #38bdf8;}
+.sidebar h2{text-align:center;margin-top:15px;font-size:20px;color:#38bdf8;}
+.social{text-align:center;margin-top:15px;}
+.social a{
+  color:#38bdf8;margin:5px;font-size:18px;
+  transition:0.3s;
+}
 .social a:hover{color:#fff;transform:scale(1.2);}
 .nav-links{list-style:none;margin-top:30px;}
 .nav-links li{margin-bottom:15px;}
@@ -74,24 +76,32 @@ h2{border-bottom:2px solid #38bdf8;padding-bottom:10px;color:#38bdf8;margin-bott
   border-radius:6px;background:rgba(56,189,248,0.15);
   border:1px solid #38bdf8;color:#38bdf8;
   text-decoration:none;transition:0.3s;
+  position:relative;
 }
-.btn:hover{background:#38bdf8;color:#0f172a;box-shadow:0 0 15px #38bdf8;}
+.btn:hover{
+  background:#38bdf8;color:#0f172a;box-shadow:0 0 15px #38bdf8;
+  transform:scale(1.1);
+}
 
 /* ===== Skills Section ===== */
-.skills-section{
-  position:relative;width:500px;height:500px;margin:0 auto;
-}
+.skills-section{position:relative;width:500px;height:500px;margin:0 auto;}
 .center-label{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  font-size:22px;font-weight:bold;
-  background:rgba(15,23,42,0.85);padding:15px 25px;
-  border:1px solid #38bdf8;border-radius:12px;
+  width:180px;height:180px;
+  background:rgba(15,23,42,0.85);
+  border:2px solid #38bdf8;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:bold;
   backdrop-filter:blur(10px);
+  z-index:2;
+  text-align:center;
 }
 .skills-circle{
   position:absolute;width:100%;height:100%;top:0;left:0;
   animation:rotate 40s linear infinite;
   transform-origin:center center;
+  z-index:1;
 }
 @keyframes rotate{to{transform:rotate(360deg);}}
 .skill{
@@ -99,24 +109,24 @@ h2{border-bottom:2px solid #38bdf8;padding-bottom:10px;color:#38bdf8;margin-bott
   display:flex;align-items:center;justify-content:center;
   background:rgba(15,23,42,0.9);
   border:1px solid #38bdf8;cursor:pointer;
-  transition:transform 0.3s;
+  transition:transform 0.3s, box-shadow 0.3s;
+  z-index:2;
 }
-.skill:hover{transform:scale(1.2);}
+.skill:hover{transform:scale(1.2);box-shadow:0 0 15px #38bdf8;}
 .skill span{margin-top:65px;font-size:14px;color:#38bdf8;position:absolute;white-space:nowrap;}
-/* Subskills Popup */
 .sub-skills{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  display:none;flex-wrap:wrap;gap:10px;justify-content:center;
+  display:none;flex-direction:column;gap:10px;justify-content:center;align-items:center;
   width:80%;padding:20px;
   background:rgba(15,23,42,0.95);border:1px solid #38bdf8;border-radius:12px;
+  z-index:3;
 }
 .sub-skills .sub{padding:10px 15px;background:rgba(56,189,248,0.15);border:1px solid #38bdf8;border-radius:6px;color:#38bdf8;}
 .back-btn{margin-top:15px;}
 
 /* ===== Contact ===== */
-#contact ul{list-style:none;line-height:2;}
-#contact a{color:#38bdf8;text-decoration:none;}
-#contact a:hover{text-decoration:underline;}
+#contact .contact-buttons{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;}
+#contact .contact-buttons a{min-width:120px;text-align:center;}
 
 /* ===== Responsive ===== */
 @media(max-width:768px){
@@ -143,9 +153,9 @@ h2{border-bottom:2px solid #38bdf8;padding-bottom:10px;color:#38bdf8;margin-bott
   </div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
     <li><a href="#certificates">Certificates</a></li>
     <li><a href="#resume">Resume</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -157,10 +167,23 @@ h2{border-bottom:2px solid #38bdf8;padding-bottom:10px;color:#38bdf8;margin-bott
 
 <!-- About -->
 <section id="about">
-<h2>About Me</h2>
-<div class="card">
-  <p>I am <strong>Sanket Ramesh Naikwade</strong>, MCA student with B.Sc. CS background. Skilled in <strong>Python, SQL, Excel, Power BI, Tableau, Data Analysis</strong>. Experienced in data cleaning, visualization, dashboards. Passionate about real-world data analytics projects.</p>
-</div>
+  <h2>About Me</h2>
+  <div class="card" style="display:flex;gap:20px;align-items:center;">
+    <img src="sanket.jpg.jpeg" alt="Sanket" style="width:150px;height:150px;border-radius:8px;">
+    <p>
+      Hi, I am <strong>Sanket Ramesh Naikwade</strong>, a <strong>B.Sc. in Computer Science graduate</strong> and currently <strong>pursuing the first year of MCA</strong>. I specialize in <strong>Data Analytics</strong>, with proficiency in <strong>Python, SQL, Excel, Power BI, and Tableau</strong>. I have hands-on experience in <strong>data cleaning, visualization, and creating dashboards</strong> to extract actionable insights. My goal is to apply analytical skills to <strong>solve real-world problems and support data-driven decisions</strong>.
+    </p>
+  </div>
+</section>
+
+<!-- Education -->
+<section id="education">
+  <h2>Education</h2>
+  <div style="text-align:center;">
+    <a href="#" class="btn edu-btn" data-info="mca">MCA - 1st Year</a>
+    <a href="#" class="btn edu-btn" data-info="bsc">B.Sc. Computer Science</a>
+  </div>
+  <div id="eduInfo" class="card" style="margin-top:20px;max-width:500px;text-align:center;"></div>
 </section>
 
 <!-- Skills -->
@@ -169,12 +192,24 @@ h2{border-bottom:2px solid #38bdf8;padding-bottom:10px;color:#38bdf8;margin-bott
 <div class="skills-section">
   <div class="center-label" id="centerLabel">Data Analytics</div>
   <div class="skills-circle" id="skillsCircle">
-    <div class="skill" style="top:0%;left:50%;" data-skill="Python" data-sub="NumPy,Pandas,Matplotlib,Seaborn,Scikit-Learn"><i class="fab fa-python fa-2x"></i><span>Python</span></div>
-    <div class="skill" style="top:20%;left:90%;" data-skill="SQL" data-sub="Joins,Subqueries,DDL,DML,TCL,DQL"><i class="fas fa-database fa-2x"></i><span>SQL</span></div>
-    <div class="skill" style="top:70%;left:100%;" data-skill="Excel" data-sub="Pivot Tables,VLOOKUP,HLOOKUP,Charts"><i class="fas fa-file-excel fa-2x"></i><span>Excel</span></div>
-    <div class="skill" style="top:90%;left:50%;" data-skill="Power BI" data-sub="DAX,Data Modeling,Dashboards"><i class="fas fa-chart-line fa-2x"></i><span>Power BI</span></div>
-    <div class="skill" style="top:70%;left:0%;" data-skill="Tableau" data-sub="Charts,Maps,Dashboards"><i class="fas fa-table fa-2x"></i><span>Tableau</span></div>
-    <div class="skill" style="top:20%;left:10%;" data-skill="Data Analysis" data-sub="Cleaning,Transformation,Visualization"><i class="fas fa-chart-pie fa-2x"></i><span>Data Analysis</span></div>
+    <div class="skill" style="top:0%;left:50%;" data-skill="Python" data-sub="NumPy,Pandas,Matplotlib,Seaborn,Scikit-Learn">
+      <i class="fab fa-python fa-2x"></i><span>Python</span>
+    </div>
+    <div class="skill" style="top:20%;left:90%;" data-skill="SQL" data-sub="Joins,Subqueries,DDL,DML,TCL,DQL">
+      <i class="fas fa-database fa-2x"></i><span>SQL</span>
+    </div>
+    <div class="skill" style="top:70%;left:100%;" data-skill="Excel" data-sub="Pivot Tables,VLOOKUP,HLOOKUP,Charts">
+      <i class="fas fa-file-excel fa-2x"></i><span>Excel</span>
+    </div>
+    <div class="skill" style="top:90%;left:50%;" data-skill="Power BI" data-sub="DAX,Data Modeling,Dashboards">
+      <i class="fas fa-chart-line fa-2x"></i><span>Power BI</span>
+    </div>
+    <div class="skill" style="top:70%;left:0%;" data-skill="Tableau" data-sub="Charts,Maps,Dashboards">
+      <i class="fas fa-table fa-2x"></i><span>Tableau</span>
+    </div>
+    <div class="skill" style="top:20%;left:10%;" data-skill="Data Analysis" data-sub="Cleaning,Transformation,Visualization">
+      <i class="fas fa-chart-pie fa-2x"></i><span>Data Analysis</span>
+    </div>
   </div>
   <div class="sub-skills" id="subSkills"></div>
 </div>
@@ -184,18 +219,27 @@ h2{border-bottom:2px solid #38bdf8;padding-bottom:10px;color:#38bdf8;margin-bott
 <section id="projects">
 <h2>Projects</h2>
 <div class="card-container">
-  <div class="card"><h3>Spotify Data Analysis</h3><p>Analyzed streaming trends and user behavior using Power BI & Tableau.</p></div>
-  <div class="card"><h3>Lung Cancer Data Analysis</h3><p>Processed healthcare data using Python visualization libraries.</p></div>
-  <div class="card"><h3>Online Examination System</h3><p>Built in PHP to manage tests, scores, and results.</p></div>
-</div>
-</section>
-
-<!-- Education -->
-<section id="education">
-<h2>Education</h2>
-<div class="card-container">
-  <div class="card"><h3>MCA</h3><p>Pursuing (Part 1), Savitribai Phule Pune University</p></div>
-  <div class="card"><h3>B.Sc. Computer Science</h3><p>2022–2025, Savitribai Phule Pune University</p></div>
+  <div class="card"><h3>Spotify Data Analysis</h3>
+    <ul>
+      <li>Analyzed streaming trends and user behavior</li>
+      <li>Used Power BI & Tableau for dashboards</li>
+      <li>Generated insights for recommendation strategies</li>
+    </ul>
+  </div>
+  <div class="card"><h3>Lung Cancer Data Analysis</h3>
+    <ul>
+      <li>Processed healthcare datasets using Python</li>
+      <li>Performed statistical analysis and visualization</li>
+      <li>Generated actionable insights for early detection</li>
+    </ul>
+  </div>
+  <div class="card"><h3>Online Examination System</h3>
+    <ul>
+      <li>Built in PHP to manage tests, scores, and results</li>
+      <li>Features: authentication, test scheduling, automated scoring</li>
+      <li>Designed for easy maintenance and scalability</li>
+    </ul>
+  </div>
 </div>
 </section>
 
@@ -221,18 +265,19 @@ h2{border-bottom:2px solid #38bdf8;padding-bottom:10px;color:#38bdf8;margin-bott
 <!-- Resume -->
 <section id="resume">
 <h2>Resume</h2>
+<a href="Sanket_Naikwade_Resume.pdf" target="_blank" class="btn">View Resume</a>
 <a href="Sanket_Naikwade_Resume.pdf" download class="btn">Download Resume</a>
 </section>
 
 <!-- Contact -->
 <section id="contact">
 <h2>Contact</h2>
-<ul>
-  <li><strong>Email:</strong> <a href="mailto:sanketnaikwade673@gmail.com">sanketnaikwade673@gmail.com</a></li>
-  <li><strong>Phone:</strong> <a href="tel:+918262847016">+91 8262847016</a></li>
-  <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank">Profile</a></li>
-  <li><strong>GitHub:</strong> <a href="https://github.com/sanket7016" target="_blank">Profile</a></li>
-</ul>
+<div class="contact-buttons">
+  <a href="mailto:sanketnaikwade673@gmail.com" class="btn"><i class="fas fa-envelope"></i> Email</a>
+  <a href="tel:+918262847016" class="btn"><i class="fas fa-phone"></i> Call</a>
+  <a href="https://github.com/sanket7016" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
+  <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+</div>
 </section>
 
 <footer>
@@ -256,7 +301,6 @@ const skills=document.querySelectorAll(".skill");
 const subSkills=document.getElementById("subSkills");
 const centerLabel=document.getElementById("centerLabel");
 const skillsCircle=document.getElementById("skillsCircle");
-
 skills.forEach(skill=>{
   skill.addEventListener("click",()=>{
     const name=skill.getAttribute("data-skill");
@@ -282,6 +326,20 @@ skills.forEach(skill=>{
     });
     subSkills.appendChild(back);
     subSkills.style.display="flex";
+  });
+});
+
+// Education Info
+const eduButtons=document.querySelectorAll(".edu-btn");
+const eduInfo=document.getElementById("eduInfo");
+eduButtons.forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const type=btn.getAttribute("data-info");
+    if(type==="mca"){
+      eduInfo.innerHTML="<h3>MCA - 1st Year</h3><p>Pursuing at Savitribai Phule Pune University. Focused on Data Analytics, Machine Learning, and Software Development.</p>";
+    } else if(type==="bsc"){
+      eduInfo.innerHTML="<h3>B.Sc. Computer Science</h3><p>2022-2025 at Savitribai Phule Pune University. Studied programming, databases, algorithms, and data structures.</p>";
+    }
   });
 });
 </script>
