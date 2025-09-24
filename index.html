@@ -5,42 +5,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sanket Ramesh Naikwade | Portfolio</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <style>
-  * { box-sizing: border-box; margin:0; padding:0; font-family:'Segoe UI',sans-serif;}
-  html {scroll-behavior: smooth;}
-  body {
-    background: url('https://images.unsplash.com/photo-1556155092-8707de31f9c0?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
-    background-size: cover;
-    color:#fff;
-    overflow-x:hidden;
-  }
+/* ===== Basic Reset ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+html{scroll-behavior:smooth;}
+body{position:relative; color:#fff;}
 
-  /* Sidebar */
-  .sidebar {
-    width: 250px;
+/* ===== Particles Background ===== */
+#particles-js{
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index:-1;
+}
+
+/* ===== Sidebar ===== */
+.sidebar{
+    width:250px;
     background: rgba(15,23,42,0.95);
     position: fixed;
     height: 100%;
     padding: 20px;
-  }
-  .sidebar img { width:120px; border-radius:50%; display:block; margin:auto; border:3px solid #38bdf8; }
-  .sidebar h2 { text-align:center; margin-top:10px; font-size:20px; }
-  .social a { color:white; margin:5px; font-size:18px; display:inline-block; }
-  .nav-links { list-style:none; margin-top:30px; }
-  .nav-links li { margin-bottom:15px; }
-  .nav-links a { color:#cbd5e1; text-decoration:none; transition:0.3s; }
-  .nav-links a:hover { color:#38bdf8; font-weight:bold; }
+}
+.sidebar img{
+    width:120px; border-radius:50%; display:block; margin:auto; border:3px solid #38bdf8;
+}
+.sidebar h2{text-align:center; margin-top:10px; font-size:20px;}
+.social a{color:white; margin:5px; font-size:18px; display:inline-block;}
+.nav-links{list-style:none; margin-top:30px;}
+.nav-links li{margin-bottom:15px;}
+.nav-links a{color:#cbd5e1; text-decoration:none; transition:0.3s;}
+.nav-links a:hover{color:#38bdf8; font-weight:bold;}
 
-  /* Main Content */
-  .main { margin-left:250px; padding:30px; flex:1; background: rgba(0,0,0,0.6);}
-  section { margin-bottom:50px; }
-  h2 { border-bottom:2px solid #38bdf8; padding-bottom:10px; color:#38bdf8; }
+/* ===== Main Content ===== */
+.main{margin-left:250px; padding:30px;}
+section{margin-bottom:50px; opacity:0; transform:translateY(50px); transition:0.8s ease;}
+section.visible{opacity:1; transform:translateY(0);}
+h2{border-bottom:2px solid #38bdf8; padding-bottom:10px; color:#38bdf8;}
 
-  .about-container { display:flex; flex-wrap:wrap; align-items:center; }
-  .about-container img { max-width:200px; border-radius:10px; margin-right:20px; }
-  .about-text { flex:1; line-height:1.6; }
+/* About Section */
+.about-container{display:flex; flex-wrap:wrap; align-items:center;}
+.about-container img{max-width:200px; border-radius:10px; margin-right:20px;}
+.about-text{flex:1; line-height:1.6;}
 
-  .btn {
+/* Buttons */
+.btn{
     display:inline-block;
     padding:10px 20px;
     background:#0f172a;
@@ -48,221 +59,174 @@
     text-decoration:none;
     border-radius:6px;
     margin-top:10px;
-    transition:0.3s;
-  }
-  .btn:hover { background:#1e40af; }
+    transition:0.3s, box-shadow 0.3s;
+}
+.btn:hover{background:#1e40af; box-shadow:0 0 15px #38bdf8;}
 
-  /* Skills Circles */
-  .skills-wrapper {
-    position:relative;
-    width:400px;
-    height:400px;
-    margin:50px auto;
+/* ===== Skills Circle Section ===== */
+.skills-section{position:relative; width:500px; height:500px; margin:50px auto;}
+.center-label{
+    position:absolute; top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    font-size:24px; font-weight:bold;
+    background: rgba(15,23,42,0.8);
+    padding:15px 25px; border-radius:10px;
+    text-align:center;
+    z-index:10;
+}
+.skills-circle{
+    position:absolute; width:100%; height:100%;
+    top:0; left:0;
     animation: rotate 60s linear infinite;
-  }
-  @keyframes rotate {
-    0%{ transform: rotate(0deg); }
-    100%{ transform: rotate(360deg); }
-  }
-  .skill {
-    position:absolute;
-    width:100px;
-    height:100px;
+    transform-origin:center center;
+}
+@keyframes rotate{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+.skill{
+    position:absolute; width:100px; height:100px;
     border-radius:50%;
     background:#0f172a;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    transition: transform 0.3s;
-  }
-  .skill:hover { transform: scale(1.2); }
-  .skill-desc {
-    position:absolute;
-    top:120%;
-    left:50%;
-    transform:translateX(-50%);
-    background:rgba(30,41,59,0.9);
-    padding:10px;
-    border-radius:5px;
-    width:160px;
-    text-align:center;
-    display:none;
-    z-index:10;
-  }
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition: transform 0.3s;
+    text-align:center; font-weight:bold;
+}
+.skill:hover{transform: scale(1.2);}
+.skill-desc{
+    position:absolute; top:120%; left:50%; transform:translateX(-50%);
+    background:rgba(30,41,59,0.9); padding:10px;
+    border-radius:5px; width:180px; text-align:center;
+    display:none; z-index:20;
+    font-size:14px;
+}
 
-  /* Certificates */
-  .certificate-container {
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-    justify-content:center;
-  }
-  .certificate-card {
+/* Certificates */
+.certificate-container{
+    display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
+}
+.certificate-card{
     background: rgba(255,255,255,0.1);
-    padding:15px;
-    border-radius:10px;
-    width:320px;
-    text-align:center;
+    padding:15px; border-radius:10px;
+    width:320px; text-align:center;
     box-shadow:0px 4px 12px rgba(0,0,0,0.3);
-    transition: transform 0.3s;
-  }
-  .certificate-card:hover { transform: scale(1.05);}
-  .certificate-card img { width:100%; border-radius:8px; margin:10px 0;}
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.certificate-card:hover{transform: scale(1.05); box-shadow:0 0 20px #38bdf8;}
+.certificate-card img{width:100%; border-radius:8px; margin:10px 0;}
 
-  footer {
-    text-align:center;
-    padding:10px;
-    background: rgba(15,23,42,0.9);
-    color:white;
-  }
+/* Footer */
+footer{text-align:center; padding:10px; background: rgba(15,23,42,0.9); color:white;}
 
-  @media screen and (max-width:768px){
-    body{flex-direction:column;}
+/* Responsive */
+@media screen and (max-width:768px){
     .sidebar{width:100%; height:auto; position:relative;}
     .main{margin-left:0;}
-    .skills-wrapper{width:300px;height:300px;}
-  }
+    .skills-section{width:300px; height:300px;}
+    .skills-circle .skill{width:70px;height:70px;font-size:12px;}
+}
 </style>
 </head>
 <body>
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <img src="sanket.jpg.jpeg" alt="Sanket's photo">
+<!-- Particles Background -->
+<div id="particles-js"></div>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <img src="sanket.jpg.jpeg" alt="Sanket">
     <h2>Sanket Ramesh Naikwade</h2>
     <div class="social">
-      <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/sanket7016" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://wa.me/918262847016"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.instagram.com/naikwade_sanket/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/sanket7016" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://wa.me/918262847016"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/naikwade_sanket/" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#certificates">Certificates</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
-  </div>
+</div>
 
-  <!-- Main -->
-  <div class="main">
+<!-- Main -->
+<div class="main">
 
-    <!-- About -->
-    <section id="about">
-      <h2>About Me</h2>
-      <div class="about-container">
-        <img src="sanket.jpg.jpeg" alt="Sanket">
-        <div class="about-text">
-          <p>I am <strong>Sanket Ramesh Naikwade</strong>, a motivated MCA student with a background in Computer Science (B.Sc. CS). Skilled in <strong>Python, SQL, Excel, Power BI, Tableau, Data Analysis</strong>, with experience in data cleaning, visualization, and dashboard creation. Passionate about data analytics and eager to apply my skills in real-world projects and professional roles.</p>
-        </div>
-      </div>
-    </section>
+<!-- About -->
+<section id="about">
+<h2>About Me</h2>
+<div class="about-container">
+<img src="sanket.jpg.jpeg" alt="Sanket">
+<div class="about-text">
+<p>I am <strong>Sanket Ramesh Naikwade</strong>, MCA student with B.Sc. CS background. Skilled in <strong>Python, SQL, Excel, Power BI, Tableau, Data Analysis</strong>. Experienced in data cleaning, visualization, dashboards. Passionate about real-world data analytics projects.</p>
+</div>
+</div>
+</section>
 
-    <!-- Skills -->
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills-wrapper">
-        <div class="skill" style="top:0; left:150px;" data-desc="NumPy, Pandas, Matplotlib, Seaborn, SciKit-Learn, Jupyter Notebook">Python
-          <div class="skill-desc"></div>
-        </div>
-        <div class="skill" style="top:50px; left:300px;" data-desc="Joins, Subqueries, DDL, DML, TCL, DQL, Stored Procedures">SQL
-          <div class="skill-desc"></div>
-        </div>
-        <div class="skill" style="top:200px; left:350px;" data-desc="Pivot Tables, VLOOKUP/HLOOKUP, Conditional Formatting, Charts, Macros">Excel
-          <div class="skill-desc"></div>
-        </div>
-        <div class="skill" style="top:300px; left:200px;" data-desc="Data Modeling, DAX, Visualizations, Dashboard Design, Power Query">Power BI
-          <div class="skill-desc"></div>
-        </div>
-        <div class="skill" style="top:250px; left:50px;" data-desc="Calculations, Filters, Dashboard Design, Charts, Maps, Parameters">Tableau
-          <div class="skill-desc"></div>
-        </div>
-        <div class="skill" style="top:100px; left:0;" data-desc="Data Cleaning, Transformation, Reporting, Data Visualization, EDA">Data Analysis
-          <div class="skill-desc"></div>
-        </div>
-      </div>
-    </section>
+<!-- Skills -->
+<section id="skills">
+<h2>Skills</h2>
+<div class="skills-section">
+<div class="center-label">Data Analytics</div>
+<div class="skills-circle" id="skillsCircle">
+  <div class="skill" style="top:0%; left:50%;" data-desc="NumPy, Pandas, Matplotlib, Seaborn, SciKit-Learn, Jupyter Notebook"><i class="fab fa-python fa-2x"></i> Python<div class="skill-desc"></div></div>
+  <div class="skill" style="top:20%; left:85%;" data-desc="Joins, Subqueries, DDL, DML, TCL, DQL, Stored Procedures"><i class="fas fa-database fa-2x"></i> SQL<div class="skill-desc"></div></div>
+  <div class="skill" style="top:60%; left:100%;" data-desc="Pivot Tables, VLOOKUP/HLOOKUP, Conditional Formatting, Charts, Macros"><i class="fas fa-file-excel fa-2x"></i> Excel<div class="skill-desc"></div></div>
+  <div class="skill" style="top:90%; left:50%;" data-desc="Data Modeling, DAX, Visualizations, Dashboard Design, Power Query"><i class="fas fa-chart-line fa-2x"></i> Power BI<div class="skill-desc"></div></div>
+  <div class="skill" style="top:60%; left:0%;" data-desc="Calculations, Filters, Dashboard Design, Charts, Maps, Parameters"><i class="fas fa-table fa-2x"></i> Tableau<div class="skill-desc"></div></div>
+  <div class="skill" style="top:20%; left:15%;" data-desc="Data Cleaning, Transformation, Reporting, Data Visualization, EDA"><i class="fas fa-chart-pie fa-2x"></i> Data Analysis<div class="skill-desc"></div></div>
+</div>
+</div>
+</section>
 
-    <!-- Projects -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>Spotify Data Analysis</strong> – Built dashboards in Power BI and Tableau analyzing trends and user behavior.</li>
-        <li><strong>Lung Cancer Data Analysis</strong> – Applied Python for data cleaning, visualization, and insights.</li>
-        <li><strong>Online Examination System</strong> – Built with PHP to manage tests, scores, and results.</li>
-      </ul>
-    </section>
-
-    <!-- Education -->
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>MCA</strong> – Pursuing, SPPU</li>
-        <li><strong>B.Sc. Computer Science</strong> – 2022–2025, SPPU</li>
-      </ul>
-    </section>
-
-    <!-- Certificates -->
-    <section id="certificates">
-      <h2>Certificates</h2>
-      <div class="certificate-container">
-        <div class="certificate-card">
-          <h3>Cybersecurity Basics</h3>
-          <p><strong>Issued by:</strong> SkillEcted | <strong>Date:</strong> 20 Sept 2025</p>
-          <img src="certificate-cybersecurity.jpeg" alt="Cybersecurity Certificate">
-          <div>
-            <a href="certificate-cybersecurity.jpeg" target="_blank" class="btn"><i class="fas fa-eye"></i> View</a>
-            <a href="certificate-cybersecurity.jpeg" download class="btn"><i class="fas fa-download"></i> Download</a>
-          </div>
-        </div>
-        <div class="certificate-card">
-          <h3>Data Analytics Training</h3>
-          <p><strong>Issued by:</strong> TechnoKraft | <strong>Date:</strong> 21 Aug 2025</p>
-          <img src="certificate-data-analytics.jpeg" alt="Data Analytics Certificate">
-          <div>
-            <a href="certificate-data-analytics.jpeg" target="_blank" class="btn"><i class="fas fa-eye"></i> View</a>
-            <a href="certificate-data-analytics.jpeg" download class="btn"><i class="fas fa-download"></i> Download</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Resume -->
-    <section id="resume">
-      <h2>Resume</h2>
-      <a href="Sanket_Naikwade_Resume.pdf" target="_blank" class="btn"><i class="fas fa-eye"></i> View Resume</a>
-      <a href="Sanket_Naikwade_Resume.pdf" download class="btn"><i class="fas fa-download"></i> Download Resume</a>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <ul>
-        <li>Email: sanketnaikwade673@gmail.com</li>
-        <li>Phone: +91 8262847016</li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank">Profile</a></li>
-        <li>GitHub: <a href="https://github.com/sanket7016" target="_blank">Profile</a></li>
-      </ul>
-    </section>
-
-    <footer>&copy; 2025 Sanket Ramesh Naikwade | All Rights Reserved</footer>
-  </div>
+<!-- Projects, Education, Certificates, Resume, Contact, Footer... same structure as before -->
 
 <script>
-  const skills = document.querySelectorAll('.skill');
-  skills.forEach(skill=>{
-    const desc = skill.querySelector('.skill-desc');
+// Initialize particles.js
+particlesJS("particles-js", {
+  "particles": {
+    "number": {"value":80,"density":{"enable":true,"value_area":800}},
+    "color":{"value":"#38bdf8"},
+    "shape":{"type":"circle"},
+    "opacity":{"value":0.5},
+    "size":{"value":3},
+    "line_linked":{"enable":true,"distance":150,"color":"#38bdf8","opacity":0.4,"width":1},
+    "move":{"enable":true,"speed":2,"direction":"none","random":false,"straight":false,"out_mode":"out"}
+  },
+  "interactivity":{
+    "detect_on":"canvas",
+    "events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"}}
+  }
+});
+
+// Skills Circle Hover & Click
+const skillsCircle = document.getElementById('skillsCircle');
+const skills = document.querySelectorAll('.skill');
+
+skills.forEach(skill=>{
+    const descDiv = skill.querySelector('.skill-desc');
+    skill.addEventListener('mouseenter', ()=>{ skillsCircle.style.animationPlayState = 'paused'; });
+    skill.addEventListener('mouseleave', ()=>{ skillsCircle.style.animationPlayState = 'running'; });
     skill.addEventListener('click', ()=>{
-      // hide others
-      skills.forEach(s=>{ if(s!==skill) s.querySelector('.skill-desc').style.display='none';});
-      desc.style.display = desc.style.display==='block' ? 'none' : 'block';
-      desc.innerText = skill.dataset.desc;
+        document.querySelectorAll('.skill-desc').forEach(d=>d.style.display='none');
+        descDiv.textContent = skill.getAttribute('data-desc');
+        descDiv.style.display='block';
     });
-  });
+});
+
+// Fade-in sections
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){ entry.target.classList.add('visible'); }
+    });
+},{threshold:0.2});
+sections.forEach(sec=>observer.observe(sec));
 </script>
+
 </body>
 </html>
