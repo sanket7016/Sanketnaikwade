@@ -103,6 +103,29 @@
       background: #1e40af;
     }
 
+    /* Certificates */
+    .certificate-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .certificate-card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+    }
+    .certificate-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    .cert-btns .btn {
+      margin: 5px;
+    }
+
     footer {
       text-align: center;
       padding: 10px;
@@ -111,17 +134,13 @@
     }
 
     @media screen and (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
+      body { flex-direction: column; }
       .sidebar {
         width: 100%;
         height: auto;
         position: relative;
       }
-      .main {
-        margin-left: 0;
-      }
+      .main { margin-left: 0; }
     }
   </style>
 </head>
@@ -142,8 +161,10 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certificates">Certificates</a></li>
       <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 
@@ -157,7 +178,7 @@
         <div class="about-text">
           <p>I am <strong>Sanket Ramesh Naikwade</strong>, a motivated MCA student with a background in Computer Science (B.Sc. CS). Skilled in <strong>Python, SQL, Excel, Power BI, and Tableau</strong>, with experience in data cleaning, visualization, and dashboard creation. Passionate about data analytics and eager to apply my skills in real-world projects and professional roles.</p>
           <p><strong>Degree:</strong> MCA (Pursuing), B.Sc. Computer Science<br>
-          <strong>College:</strong> Dr. Moonje Institute of Management & IT, Nashik<br>
+          <strong>College:</strong> Savitribai Phule Pune University (SPPU)<br>
           <strong>City:</strong> Nashik, Maharashtra<br>
           <strong>Email:</strong> sanketnaikwade673@gmail.com<br>
           <strong>Phone:</strong> +91 8262847016</p>
@@ -185,6 +206,53 @@
         <li><strong>Lung Cancer Data Analysis</strong> – Processed healthcare data and applied Python for visualization and insights.</li>
         <li><strong>Online Examination System</strong> – Built with PHP to manage tests, scores, and results.</li>
       </ul>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>MCA</strong> – Pursuing (Part 1), Savitribai Phule Pune University</li>
+        <li><strong>B.Sc. Computer Science</strong> – 2022–2025, Savitribai Phule Pune University</li>
+      </ul>
+    </section>
+
+    <!-- Certificates -->
+    <section id="certificates" class="section">
+      <h2>Certificates</h2>
+      <div class="certificate-container">
+
+        <!-- Certificate 1 -->
+        <div class="certificate-card">
+          <h3>Cybersecurity Basics to Phishing Defense</h3>
+          <p><strong>Issued by:</strong> SkillEcted | <strong>Date:</strong> 20 Sept 2025</p>
+          <img src="certificate-cybersecurity.jpg" alt="Cybersecurity Certificate">
+          <div class="cert-btns">
+            <a href="certificate-cybersecurity.jpg" target="_blank" class="btn">
+              <i class="fas fa-eye"></i> View
+            </a>
+            <a href="certificate-cybersecurity.jpg" download class="btn">
+              <i class="fas fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <!-- Certificate 2 -->
+        <div class="certificate-card">
+          <h3>Data Analytics Training</h3>
+          <p><strong>Issued by:</strong> TechnoKraft Training & Solution Pvt. Ltd | <strong>Date:</strong> 21 Aug 2025</p>
+          <img src="certificate-data-analytics.jpg" alt="Data Analytics Certificate">
+          <div class="cert-btns">
+            <a href="certificate-data-analytics.jpg" target="_blank" class="btn">
+              <i class="fas fa-eye"></i> View
+            </a>
+            <a href="certificate-data-analytics.jpg" download class="btn">
+              <i class="fas fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+
+      </div>
     </section>
 
     <!-- Resume -->
