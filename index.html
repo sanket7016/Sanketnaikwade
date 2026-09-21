@@ -3,321 +3,622 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sanket Ramesh Naikwade | Portfolio</title>
+<title>Sanket Ramesh Naikwade | Data Analytics Portfolio</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-/* ===== Reset ===== */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-html{scroll-behavior:smooth;}
-body{color:#fff;background:#0a0f1c;overflow-x:hidden;font-size:16px;}
-
-/* ===== Holographic Background ===== */
-body::before{
-  content:"";
-  position:fixed;inset:0;
-  background:radial-gradient(circle at center,#1e3a8a55,#0f172a 70%);
-  z-index:-2;
-}
-.holo-rings{
-  position:fixed;top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  width:800px;height:800px;border-radius:50%;
-  background:conic-gradient(from 0deg,#38bdf855,#1e40af22,#38bdf855);
-  animation:spin 20s linear infinite;
-  filter:blur(60px);
-  z-index:-1;
-}
-@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg);}}
-
-/* ===== Sidebar ===== */
-.sidebar{
-  width:250px;background:rgba(15,23,42,0.8);
-  backdrop-filter:blur(10px);
-  border-right:2px solid #38bdf8;
-  position:fixed;height:100%;padding:20px;z-index:5;
-}
-.sidebar img{width:150px;height:150px;border-radius:12px;display:block;margin:auto;border:3px solid #38bdf8;transition:0.3s;}
-.sidebar img:hover{box-shadow:0 0 20px #38bdf8;transform:scale(1.05);}
-.sidebar h2{text-align:center;margin-top:15px;font-size:20px;color:#38bdf8;}
-.social{text-align:center;margin-top:15px;}
-.social a{color:#38bdf8;margin:5px;font-size:18px;transition:0.3s;}
-.social a:hover{color:#fff;transform:scale(1.2);}
-.nav-links{list-style:none;margin-top:30px;}
-.nav-links li{margin-bottom:15px;}
-.nav-links a{color:#cbd5e1;text-decoration:none;transition:0.3s;}
-.nav-links a:hover{color:#38bdf8;font-weight:bold;}
-
-/* ===== Main ===== */
-.main{margin-left:250px;padding:30px;}
-section{margin-bottom:60px;opacity:0;transform:translateY(50px);transition:0.8s;}
-section.visible{opacity:1;transform:translateY(0);}
-h2{border-bottom:2px solid #38bdf8;padding-bottom:10px;color:#38bdf8;margin-bottom:20px;}
-
-/* ===== Buttons ===== */
-.btn{
-  display:inline-block;padding:10px 18px;margin:5px;
-  border-radius:6px;background:rgba(56,189,248,0.15);
-  border:1px solid #38bdf8;color:#38bdf8;
-  text-decoration:none;transition:0.3s;
-  position:relative;font-size:16px;
-}
-.btn:hover{
-  background:#38bdf8;color:#0f172a;box-shadow:0 0 15px #38bdf8;
-  transform:scale(1.05);
+:root {
+  --bg-dark: #070b12;
+  --panel-bg: rgba(13, 22, 38, 0.7);
+  --panel-border: rgba(56, 189, 248, 0.2);
+  --cyan-glow: #00f2fe;
+  --accent-cyan: #38bdf8;
+  --accent-blue: #2563eb;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --grid-line: rgba(56, 189, 248, 0.04);
 }
 
-/* ===== About Me ===== */
-.about-content{
-  display:flex;gap:30px;align-items:center;flex-wrap:wrap;
-}
-.about-content img{width:220px;height:220px;border-radius:12px;border:2px solid #38bdf8;transition:0.3s;}
-.about-content img:hover{box-shadow:0 0 20px #38bdf8;transform:scale(1.05);}
-.about-content p{flex:1;font-size:16px;line-height:1.6;}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+html { scroll-behavior: smooth; }
 
-/* ===== Card Style ===== */
-.card-container{
-  display:flex;flex-wrap:wrap;gap:20px;justify-content:center;
+body {
+  color: var(--text-main);
+  background-color: var(--bg-dark);
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  overflow-x: hidden;
 }
-.card{
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(56,189,248,0.4);
-  border-radius:12px;
-  padding:20px;
-  width:300px;
-  backdrop-filter:blur(15px);
-  box-shadow:0 0 15px rgba(56,189,248,0.2);
-  transition:0.3s;
-}
-.card:hover{box-shadow:0 0 25px #38bdf8;transform:translateY(-5px);}
-.card h3{color:#38bdf8;margin-bottom:10px;font-size:18px;}
-.card ul{list-style:disc;margin-left:20px;font-size:15px;}
 
-/* ===== Skills Section ===== */
-.skills-container{
-  display:flex;flex-wrap:wrap;gap:15px;justify-content:center;
+/* Ambient Glow */
+body::before {
+  content: "";
+  position: fixed;
+  top: 15%; left: 20%;
+  width: 450px; height: 450px;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
 }
-.skill-card{
-  width:180px;padding:20px;text-align:center;border:1px solid #38bdf8;
-  border-radius:12px;background:rgba(15,23,42,0.9);
-  cursor:pointer;transition:0.3s;position:relative;
-}
-.skill-card:hover{box-shadow:0 0 15px #38bdf8;transform:scale(1.05);}
-.skill-card i{font-size:32px;margin-bottom:10px;color:#38bdf8;display:block;}
-.sub-skills{
-  display:none;flex-direction:column;align-items:center;gap:10px;
-  background:rgba(15,23,42,0.95);padding:20px;border:1px solid #38bdf8;border-radius:12px;
-}
-.sub-skills .sub{padding:8px 12px;background:rgba(56,189,248,0.15);border:1px solid #38bdf8;border-radius:6px;color:#38bdf8;width:150px;text-align:center;}
-.back-btn{margin-top:10px;}
 
-/* ===== Contact ===== */
-#contact .contact-buttons{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;}
-#contact .contact-buttons a{min-width:120px;text-align:center;}
+/* App Layout */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
 
-/* ===== Responsive ===== */
-@media(max-width:768px){
-  .sidebar{width:100%;height:auto;position:relative;}
-  .main{margin-left:0;}
-  .about-content{flex-direction:column;align-items:center;}
-  .skill-card{width:140px;}
-  .card-container{justify-content:center;}
+/* Sidebar Navigation */
+.sidebar {
+  width: 280px;
+  background: var(--panel-bg);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid var(--panel-border);
+  position: fixed;
+  height: 100vh;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.profile-zone { text-align: center; }
+.avatar-frame {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 15px;
+  border-radius: 20px;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--cyan-glow), var(--accent-blue));
+}
+.avatar-frame img {
+  width: 100%; height: 100%;
+  border-radius: 17px;
+  object-fit: cover;
+  background: #0b111e;
+}
+
+.profile-zone h1 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+.badge-role {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--cyan-glow);
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-top: 6px;
+}
+
+.nav-links { list-style: none; margin: 20px 0; }
+.nav-links li { margin-bottom: 8px; }
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+.nav-links a i { font-size: 1rem; width: 20px; text-align: center; }
+.nav-links a:hover {
+  color: var(--cyan-glow);
+  background: rgba(56, 189, 248, 0.08);
+  border-left: 3px solid var(--cyan-glow);
+}
+
+.social-strip {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 15px;
+  border-top: 1px solid var(--panel-border);
+}
+.social-strip a {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+.social-strip a:hover { color: var(--cyan-glow); }
+
+/* Main Content Area */
+.main-content {
+  margin-left: 280px;
+  padding: 40px 50px;
+  flex: 1;
+}
+
+section {
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+section.active-view { opacity: 1; transform: translateY(0); }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+.section-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.section-header .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--panel-border), transparent);
+}
+
+/* Modern Card / Panel */
+.dash-card {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  position: relative;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.dash-card:hover {
+  border-color: rgba(0, 242, 254, 0.4);
+  transform: translateY(-2px);
+}
+
+/* About Section */
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+}
+.about-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+}
+.about-text strong { color: var(--cyan-glow); font-weight: 600; }
+.kpi-board {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+.kpi-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.kpi-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--cyan-glow);
+}
+.kpi-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
+
+/* Grid Cards */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+/* Timeline / Education */
+.card-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--cyan-glow);
+  margin-bottom: 6px;
+}
+.dash-card h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.dash-card h4 { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px; font-weight: 400; }
+.bullet-list { list-style: none; }
+.bullet-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+.bullet-list li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--cyan-glow);
+}
+
+/* Skills Deck */
+.skills-deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 15px;
+}
+.skill-box {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.skill-box:hover {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: var(--cyan-glow);
+  transform: translateY(-4px);
+}
+.skill-box i { font-size: 2rem; color: var(--cyan-glow); margin-bottom: 10px; display: block; }
+.skill-box span { font-size: 0.85rem; font-weight: 600; }
+
+.subskill-viewport {
+  margin-top: 15px;
+  min-height: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px dashed var(--panel-border);
+}
+.sub-tag {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid var(--accent-cyan);
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: #fff;
+  border-radius: 6px;
+}
+
+/* Action Buttons */
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-main);
+  transition: all 0.25s ease;
+}
+.btn-action:hover {
+  background: var(--cyan-glow);
+  color: #070b12;
+  border-color: var(--cyan-glow);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+}
+
+.img-preview {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 12px 0;
+  border: 1px solid var(--panel-border);
+}
+
+/* Contact Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+.contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+.contact-btn:hover {
+  border-color: var(--cyan-glow);
+  background: rgba(0, 242, 254, 0.08);
+  color: var(--cyan-glow);
+}
+
+footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@media(max-width: 900px) {
+  .dashboard-container { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--panel-border); }
+  .main-content { margin-left: 0; padding: 25px; }
+  .about-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
-<div class="holo-rings"></div>
+<div class="dashboard-container">
 
-<!-- Sidebar -->
-<div class="sidebar">
-  <img src="sanket.jpg.jpeg" alt="Sanket">
-  <h2>Sanket Ramesh Naikwade</h2>
-  <div class="social">
-    <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/sanket7016" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://wa.me/918262847016" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://www.instagram.com/naikwade_sanket/" target="_blank"><i class="fab fa-instagram"></i></a>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#certificates">Certificates</a></li>
-    <li><a href="#resume">Resume</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</div>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="profile-zone">
+      <div class="avatar-frame">
+        <img src="sanket.jpg.jpeg" alt="Sanket Ramesh Naikwade">
+      </div>
+      <h1>Sanket R. Naikwade</h1>
+      <span class="badge-role">Data Analyst</span>
+    </div>
 
-<div class="main">
-
-<!-- About Me -->
-<section id="about">
-<h2>About Me</h2>
-<div class="about-content">
-  <img src="sanket.jpg.jpeg" alt="Sanket">
-  <p>
-    Hi, I am <strong>Sanket Ramesh Naikwade</strong>, a <strong>B.Sc. in Computer Science graduate</strong> and currently <strong>pursuing the first year of MCA (2025)</strong>. I specialize in <strong>Data Analytics</strong> with skills in <strong>Python, SQL, Excel, Power BI, and Tableau</strong>. I have hands-on experience in <strong>data cleaning, visualization, and dashboards</strong> for actionable insights. My goal is to apply analytical skills to <strong>solve real-world problems</strong> and support data-driven decisions.
-  </p>
-</div>
-</section>
-
-<!-- Education -->
-<section id="education">
-<h2>Education</h2>
-<div class="card-container">
-  <div class="card">
-    <h3>MCA - 1st Year</h3>
-    <div class="year">Year: 2025</div>
-    <div class="university">Savitribai Phule Pune University</div>
-    <ul>
-      <li>Focus: Data Analytics & Machine Learning</li>
-      <li>Current semester ongoing</li>
+    <ul class="nav-links">
+      <li><a href="#about"><i class="fas fa-terminal"></i> About</a></li>
+      <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+      <li><a href="#skills"><i class="fas fa-microchip"></i> Skills</a></li>
+      <li><a href="#projects"><i class="fas fa-chart-line"></i> Projects</a></li>
+      <li><a href="#certificates"><i class="fas fa-shield-alt"></i> Certificates</a></li>
+      <li><a href="#resume"><i class="fas fa-file-code"></i> Resume</a></li>
+      <li><a href="#contact"><i class="fas fa-satellite-dish"></i> Contact</a></li>
     </ul>
-  </div>
-  <div class="card">
-    <h3>B.Sc. Computer Science</h3>
-    <div class="year">Year: 2022–2025</div>
-    <div class="university">Savitribai Phule Pune University</div>
-    <ul>
-      <li>Focus: Programming, Databases, Data Analysis</li>
-    </ul>
-  </div>
-</div>
-</section>
 
-<!-- Skills -->
-<section id="skills">
-<h2>Skills</h2>
-<div class="skills-container">
-  <div class="skill-card" data-skill="Python" data-sub="NumPy,Pandas,Matplotlib,Seaborn,Scikit-Learn">
-    <i class="fab fa-python"></i>
-    Python
-  </div>
-  <div class="skill-card" data-skill="SQL" data-sub="Joins,Subqueries,DDL,DML,TCL,DQL">
-    <i class="fas fa-database"></i>
-    SQL
-  </div>
-  <div class="skill-card" data-skill="Excel" data-sub="Pivot Tables,VLOOKUP,HLOOKUP,Charts">
-    <i class="fas fa-file-excel"></i>
-    Excel
-  </div>
-  <div class="skill-card" data-skill="Power BI" data-sub="DAX,Data Modeling,Dashboards">
-    <i class="fas fa-chart-line"></i>
-    Power BI
-  </div>
-  <div class="skill-card" data-skill="Tableau" data-sub="Charts,Maps,Dashboards">
-    <i class="fas fa-table"></i>
-    Tableau
-  </div>
-  <div class="skill-card" data-skill="Data Analysis" data-sub="Cleaning,Transformation,Visualization">
-    <i class="fas fa-chart-pie"></i>
-    Data Analysis
-  </div>
-</div>
-<div class="sub-skills" id="subSkills"></div>
-</section>
+    <div class="social-strip">
+      <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/sanket7016" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://wa.me/918262847016" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/naikwade_sanket/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </aside>
 
-<!-- Projects -->
-<section id="projects">
-<h2>Projects</h2>
-<div class="card-container">
-  <div class="card">
-    <h3>Spotify Data Analysis</h3>
-    <ul>
-      <li>Analyzed streaming trends using Power BI & Tableau</li>
-      <li>Identified popular tracks, user behavior, and patterns</li>
-      <li>Created interactive dashboards for insights</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Lung Cancer Data Analysis</h3>
-    <ul>
-      <li>Processed healthcare datasets using Python</li>
-      <li>Visualized statistics with Matplotlib & Seaborn</li>
-      <li>Identified significant features and trends</li>
-    </ul>
-  </div>
-</div>
-</section>
+  <!-- Main Content -->
+  <main class="main-content">
 
-<!-- Certificates -->
-<section id="certificates">
-<h2>Certificates</h2>
-<div class="card-container">
-  <div class="card">
-    <h3>Cybersecurity Basics</h3>
-    <img src="certificate-cybersecurity.jpeg" alt="Cybersecurity Certificate" style="width:100%;border-radius:8px;margin:10px 0;">
-    <a href="certificate-cybersecurity.jpeg" target="_blank" class="btn">View</a>
-    <a href="certificate-cybersecurity.jpeg" download class="btn">Download</a>
-  </div>
-  <div class="card">
-    <h3>Data Analytics Training</h3>
-    <img src="certificate-data-analytics.jpeg" alt="Data Analytics Certificate" style="width:100%;border-radius:8px;margin:10px 0;">
-    <a href="certificate-data-analytics.jpeg" target="_blank" class="btn">View</a>
-    <a href="certificate-data-analytics.jpeg" download class="btn">Download</a>
-  </div>
-</div>
-</section>
+    <!-- About Section -->
+    <section id="about" class="active-view">
+      <div class="section-header">
+        <h2>01 // About Overview</h2>
+        <div class="line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="dash-card">
+          <p class="about-text">
+            Hi, I am <strong>Sanket Ramesh Naikwade</strong>, a <strong>B.Sc. in Computer Science</strong> graduate currently pursuing the first year of <strong>MCA (2025)</strong>. I specialize in <strong>Data Analytics</strong> with core competencies in <strong>Python, SQL, Excel, Power BI, and Tableau</strong>. I focus on actionable telemetry, data hygiene, visualization architectures, and automated dashboard delivery for real-world impact.
+          </p>
+        </div>
+        <div class="kpi-board">
+          <div class="kpi-card">
+            <div class="kpi-value">5+</div>
+            <div class="kpi-label">Core Tech Stack</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value">100%</div>
+            <div class="kpi-label">Data-Driven Approach</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- Resume -->
-<section id="resume">
-<h2>Resume</h2>
-<a href="Sanket_Naikwade_Resume.pdf.pdf" target="_blank" class="btn">View Resume</a>
-<a href="Sanket_Naikwade_Resume.pdf.pdf" download class="btn">Download Resume</a>
-</section>
+    <!-- Education Section -->
+    <section id="education">
+      <div class="section-header">
+        <h2>02 // Education Track</h2>
+        <div class="line"></div>
+      </div>
+      <div class="grid-2">
+        <div class="dash-card">
+          <div class="card-tag">STATUS: ENROLLED [2025]</div>
+          <h3>MCA - 1st Year</h3>
+          <h4>Savitribai Phule Pune University</h4>
+          <ul class="bullet-list">
+            <li>Specialization: Data Analytics & Machine Learning</li>
+            <li>Current semester in progress</li>
+          </ul>
+        </div>
+        <div class="dash-card">
+          <div class="card-tag">STATUS: GRADUATED [2022–2025]</div>
+          <h3>B.Sc. Computer Science</h3>
+          <h4>Savitribai Phule Pune University</h4>
+          <ul class="bullet-list">
+            <li>Core: Programming, Relational Databases, Applied Analysis</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<!-- Contact -->
-<section id="contact">
-<h2>Contact</h2>
-<div class="contact-buttons">
-  <a href="mailto:sanketnaikwade673@gmail.com" class="btn"><i class="fas fa-envelope"></i> Email</a>
-  <a href="tel:+918262847016" class="btn"><i class="fas fa-phone"></i> Call</a>
-  <a href="https://github.com/sanket7016" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
-  <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-</div>
-</section>
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="section-header">
+        <h2>03 // Analytics Matrix</h2>
+        <div class="line"></div>
+      </div>
+      <div class="dash-card">
+        <div class="skills-deck">
+          <div class="skill-box" data-sub="NumPy,Pandas,Matplotlib,Seaborn,Scikit-Learn">
+            <i class="fab fa-python"></i>
+            <span>Python</span>
+          </div>
+          <div class="skill-box" data-sub="Joins,Subqueries,DDL,DML,TCL,DQL,Aggregation">
+            <i class="fas fa-database"></i>
+            <span>SQL</span>
+          </div>
+          <div class="skill-box" data-sub="Pivot Tables,VLOOKUP,HLOOKUP,Formulas,Dashboards">
+            <i class="fas fa-file-excel"></i>
+            <span>Excel</span>
+          </div>
+          <div class="skill-box" data-sub="DAX,Data Modeling,ETL,Visual Reports">
+            <i class="fas fa-chart-line"></i>
+            <span>Power BI</span>
+          </div>
+          <div class="skill-box" data-sub="Calculated Fields,Maps,Parameters,Storyboarding">
+            <i class="fas fa-table"></i>
+            <span>Tableau</span>
+          </div>
+          <div class="skill-box" data-sub="Data Cleaning,Feature Engineering,Exploratory Analysis">
+            <i class="fas fa-chart-pie"></i>
+            <span>Data Analysis</span>
+          </div>
+        </div>
+        <div style="margin-top:20px; font-size:0.8rem; color: var(--text-muted);">
+          <i class="fas fa-mouse-pointer"></i> Click on any skill block above to inspect sub-modules:
+        </div>
+        <div class="subskill-viewport" id="subSkillContainer">
+          <span style="color: var(--text-muted); font-size: 0.85rem;">Select an analytics skill to preview modules...</span>
+        </div>
+      </div>
+    </section>
 
-<footer>
-<p>&copy; 2025 Sanket Ramesh Naikwade | All Rights Reserved</p>
-</footer>
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="section-header">
+        <h2>04 // Production Projects</h2>
+        <div class="line"></div>
+      </div>
+      <div class="grid-2">
+        <div class="dash-card">
+          <div class="card-tag">STACK: POWER BI, TABLEAU</div>
+          <h3>Spotify Data Analysis</h3>
+          <ul class="bullet-list" style="margin-top: 15px;">
+            <li>Analyzed streaming telemetry and engagement trends.</li>
+            <li>Identified top acoustic traits, artist reach, and listener cohorts.</li>
+            <li>Built high-impact interactive dashboards for exploratory metrics.</li>
+          </ul>
+        </div>
+        <div class="dash-card">
+          <div class="card-tag">STACK: PYTHON, SEABORN</div>
+          <h3>Lung Cancer Data Analysis</h3>
+          <ul class="bullet-list" style="margin-top: 15px;">
+            <li>Processed clinical health records and resolved statistical anomalies.</li>
+            <li>Explored correlation matrix charts using Matplotlib and Seaborn.</li>
+            <li>Isolated high-risk demographic clusters via feature importance.</li>
+          </ul>
+        </div>
+        <!-- नवीन प्रोजेक्ट जोडण्यासाठी वरील dash-card कॉपी करून येथे पेस्ट करा -->
+      </div>
+    </section>
 
+    <!-- Certificates Section -->
+    <section id="certificates">
+      <div class="section-header">
+        <h2>05 // Credentials & Badges</h2>
+        <div class="line"></div>
+      </div>
+      <div class="grid-2">
+        <div class="dash-card">
+          <div class="card-tag">SECURITY DOMAIN</div>
+          <h3>Cybersecurity Basics</h3>
+          <img src="certificate-cybersecurity.jpeg" alt="Cybersecurity Certificate" class="img-preview">
+          <div style="display:flex; gap:10px; margin-top:10px;">
+            <a href="certificate-cybersecurity.jpeg" target="_blank" class="btn-action"><i class="fas fa-eye"></i> View</a>
+            <a href="certificate-cybersecurity.jpeg" download class="btn-action"><i class="fas fa-download"></i> Download</a>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="card-tag">DATA DOMAIN</div>
+          <h3>Data Analytics Training</h3>
+          <img src="certificate-data-analytics.jpeg" alt="Data Analytics Certificate" class="img-preview">
+          <div style="display:flex; gap:10px; margin-top:10px;">
+            <a href="certificate-data-analytics.jpeg" target="_blank" class="btn-action"><i class="fas fa-eye"></i> View</a>
+            <a href="certificate-data-analytics.jpeg" download class="btn-action"><i class="fas fa-download"></i> Download</a>
+          </div>
+        </div>
+        <!-- नवीन सर्टिफिकेट जोडण्यासाठी वरील dash-card कॉपी करून येथे पेस्ट करा -->
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+      <div class="section-header">
+        <h2>06 // Dossier / Resume</h2>
+        <div class="line"></div>
+      </div>
+      <div class="dash-card" style="text-align: center; padding: 40px 20px;">
+        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">
+          Access the complete chronological portfolio, work experience, and educational record.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+          <a href="Sanket_Naikwade_Resume.pdf.pdf" target="_blank" class="btn-action"><i class="fas fa-file-pdf"></i> View Resume</a>
+          <a href="Sanket_Naikwade_Resume.pdf.pdf" download class="btn-action"><i class="fas fa-arrow-circle-down"></i> Download Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="section-header">
+        <h2>07 // Connection Hub</h2>
+        <div class="line"></div>
+      </div>
+      <div class="contact-grid">
+        <a href="mailto:sanketnaikwade673@gmail.com" class="contact-btn">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+        <a href="tel:+918262847016" class="contact-btn">
+          <i class="fas fa-phone-alt"></i> Direct Call
+        </a>
+        <a href="https://github.com/sanket7016" target="_blank" class="contact-btn">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/sanket-naikwade-2a2459358" target="_blank" class="contact-btn">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <p>&gt; Sanket Ramesh Naikwade // System Online. Ready for Data Analytics Roles.</p>
+    </footer>
+
+  </main>
 </div>
 
 <script>
-// Intersection fade-in
-const sections=document.querySelectorAll("section");
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting) entry.target.classList.add("visible");
+// Fade-in on Scroll
+const sections = document.querySelectorAll("section");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active-view");
+    }
   });
-},{threshold:0.2});
-sections.forEach(sec=>observer.observe(sec));
+}, { threshold: 0.15 });
 
-// Skills Logic
-const skills=document.querySelectorAll(".skill-card");
-const subSkills=document.getElementById("subSkills");
+sections.forEach(sec => observer.observe(sec));
 
-skills.forEach(skill=>{
-  skill.addEventListener("click",()=>{
-    const subs=skill.getAttribute("data-sub").split(",");
-    subSkills.innerHTML="";
-    subs.forEach(s=>{
-      const div=document.createElement("div");
-      div.className="sub";
-      div.textContent=s;
-      subSkills.appendChild(div);
+// Dynamic Skills Click
+const skillBoxes = document.querySelectorAll(".skill-box");
+const container = document.getElementById("subSkillContainer");
+
+skillBoxes.forEach(box => {
+  box.addEventListener("click", () => {
+    const subs = box.getAttribute("data-sub").split(",");
+    container.innerHTML = "";
+    subs.forEach(item => {
+      const chip = document.createElement("span");
+      chip.className = "sub-tag";
+      chip.textContent = item;
+      container.appendChild(chip);
     });
-    const back=document.createElement("a");
-    back.textContent="Back";
-    back.href="#skills";
-    back.className="btn back-btn";
-    back.addEventListener("click",(e)=>{
-      e.preventDefault();
-      subSkills.style.display="none";
-    });
-    subSkills.appendChild(back);
-    subSkills.style.display="flex";
   });
 });
 </script>
